@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Error in javaScript</title>
+    <script>
+     
+     class CustomErrorHandling extends Error{
+        constructor(msg){
+            super(msg)
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this,CustomErrorHandling)
+        }
+        }
+     }
+
+
+
+
+        try{
+            console.log(' Error 1');
+            console.log('Error 2');
+            throw new CustomErrorHandling('custom Error')
+        }
+        catch(e){
+             console.log(e.message)
+        }
+        finally{
+            console.log('hi, I am customed')
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
